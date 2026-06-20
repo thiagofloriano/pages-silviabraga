@@ -20,7 +20,7 @@
 
   <!-- Font Awesome icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3w==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer">
 
   <!-- Custom fonts for this template -->
   <link rel="stylesheet"
@@ -62,10 +62,15 @@
       <div class="row h-100">
         <div class="col-lg-7 my-auto">
           <div class="header-content mx-auto">
-            <h1 class="mb-5">Silvia Sant'Anna Braga dos Santos</h1>
+            <h1 class="mb-4">Silvia Sant'Anna Braga dos Santos</h1>
             <h4>Psicóloga Cognitivo-Comportamental</h4>
-            <h6>CRP 12/00853</h6>
-            <h6>Fone (47) 99911-9325</h6>
+            <h6 class="text-uppercase">CRP 12/00853</h6>
+            <p class="header-phone mb-4">
+              <a href="tel:+554799119325"><i class="fas fa-phone" aria-hidden="true"></i> (47) 99911-9325</a>
+            </p>
+            <a href="https://wa.me/554799119325" target="_blank" rel="noopener" class="btn btn-whatsapp btn-xl">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i> Agendar conversa
+            </a>
           </div>
         </div>
         <div class="col-lg-5 my-auto">
@@ -172,8 +177,6 @@
                   <p class="text-muted">Instituto Sensus - Blumenau/SC</p>
                 </div>
               </div>
-            </div>
-            <div class="row">
               <div class="col-lg-6">
                 <div class="feature-item">
                   <i class="far fa-check-circle text-primary" aria-hidden="true"></i>
@@ -201,9 +204,15 @@
     <div class="cta-content">
       <div class="container">
         <h2>Entre em contato <br>agora mesmo</h2>
-        <h5 id="telefone">(47) 99911-9325</h5>
-        <a href="https://web.whatsapp.com/send?phone=554799119325" target="_blank" rel="noopener" class="btn btn-outline btn-xl"><small>WhatsApp </small>WEB</a>
-        <a href="https://api.whatsapp.com/send?phone=554799119325" target="_blank" rel="noopener" class="btn btn-outline btn-xl"><small>WhatsApp </small>APP</a>
+        <h5 id="telefone"><a href="tel:+554799119325">(47) 99911-9325</a></h5>
+        <div class="cta-buttons">
+          <a href="https://wa.me/554799119325" target="_blank" rel="noopener" class="btn btn-whatsapp btn-xl">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i> Conversar no WhatsApp
+          </a>
+          <a href="tel:+554799119325" class="btn btn-outline btn-xl">
+            <i class="fas fa-phone" aria-hidden="true"></i> Ligar agora
+          </a>
+        </div>
       </div>
     </div>
     <div class="overlay"></div>
@@ -213,8 +222,8 @@
     <div class="container no-padding">
       <div class="row no-padding">
         <div class="col-lg-7 my-auto">
-          <h2><a href="mailto:psicologia@silviabraga.com.br">psicologia@silviabraga.com.br</a></h2>
-          <h3>(47) 99911-9325</h3>
+          <h2><a href="mailto:psicologia@silviabraga.com.br"><i class="fas fa-envelope" aria-hidden="true"></i> psicologia@silviabraga.com.br</a></h2>
+          <h3><a href="tel:+554799119325"><i class="fas fa-phone" aria-hidden="true"></i> (47) 99911-9325</a></h3>
         </div>
         <div class="col-lg-3 my-auto menina">
           <img src="./img/woman.png" class="img-fluid" alt="Ilustração de uma mulher">
@@ -225,20 +234,26 @@
 
   <footer>
     <div class="container">
-      <p>Theme: Copyright&copy; 2013-2018 Blackrock Digital LLC | MIT License</p>
       <ul class="list-inline">
         <li class="list-inline-item">
-          <a href="mailto:psicologia@silviabraga.com.br">Email</a>
+          <a href="mailto:psicologia@silviabraga.com.br" aria-label="Email"><i class="fas fa-envelope" aria-hidden="true"></i></a>
         </li>
         <li class="list-inline-item">
-          <a href="https://api.whatsapp.com/send?phone=554799119325" target="_blank" rel="noopener">WhatsApp App</a>
+          <a href="https://wa.me/554799119325" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
         </li>
         <li class="list-inline-item">
-          <a href="https://web.whatsapp.com/send?phone=554799119325" target="_blank" rel="noopener">WhatsApp Web</a>
+          <a href="tel:+554799119325" aria-label="Telefone"><i class="fas fa-phone" aria-hidden="true"></i></a>
         </li>
       </ul>
+      <p>Silvia Sant'Anna Braga dos Santos &middot; CRP 12/00853</p>
+      <p class="footer-credit">&copy; 2013&ndash;2018 &middot; Inspirado no tema <a href="https://startbootstrap.com/template-overviews/new-age" target="_blank" rel="noopener">New Age</a> (MIT)</p>
     </div>
   </footer>
+
+  <!-- Botão flutuante de WhatsApp — acesso rápido em qualquer ponto da página -->
+  <a href="https://wa.me/554799119325" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Falar no WhatsApp">
+    <i class="fab fa-whatsapp" aria-hidden="true"></i>
+  </a>
 
   <!-- Bootstrap core JavaScript (bundle includes Popper; no jQuery) -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

@@ -39,7 +39,10 @@ Ou simplesmente abra o `index.html` no navegador.
 É só publicar os arquivos estáticos no servidor (Apache, Nginx, etc.).
 O `.htaccess` incluído cuida da configuração do Apache.
 
----
+## Créditos
 
-Baseado no tema [Start Bootstrap - New Age](https://startbootstrap.com/template-overviews/new-age)
-(MIT License). Veja `LICENSE`.
+Este site é **inspirado** no tema
+[Start Bootstrap - New Age](https://startbootstrap.com/template-overviews/new-age)
+(MIT License) — o conceito visual serviu de ponto de partida, mas o layout,
+as cores, os componentes e o código foram remodelados e adaptados para este
+projeto. Não é o tema original. Veja `LICENSE`.

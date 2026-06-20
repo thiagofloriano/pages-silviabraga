@@ -205,6 +205,18 @@ header.masthead .device-container {
 
 header.masthead .device-container img {
   margin: 0 auto;
+  border-radius: 18px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+header.masthead .header-phone a {
+  color: #fff;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+header.masthead .header-phone a:hover {
+  color: #1CD8D2;
 }
 
 header.masthead .device-container .screen img {
@@ -249,6 +261,16 @@ section.download h2 {
   }
 }
 
+section.features .section-heading {
+  margin-bottom: 2.75rem;
+}
+
+@media (min-width: 768px) {
+  section.features .section-heading {
+    margin-bottom: 4.5rem;
+  }
+}
+
 section.features .section-heading h2 {
   margin-top: 0;
 }
@@ -273,19 +295,43 @@ section.features .device-container {
   }
 }
 
+/* Espaçamento consistente entre os cards (horizontal e vertical, inclusive
+   quando empilham) via as variáveis de gutter do Bootstrap. */
+section.features .row {
+  --bs-gutter-y: 1.75rem;
+}
+
+/* Cards modernos: fundo branco, cantos arredondados, sombra suave e
+   elevação no hover. Mantém a essência (ícone em gradiente + texto). */
 section.features .feature-item {
-  padding-top: 1em;
-  padding-bottom: 1em;
+  height: 100%;
+  padding: 2.25rem 1.5rem;
   text-align: center;
+  background-color: #fff;
+  border: 1px solid rgba(34, 34, 34, 0.06);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(24, 40, 72, 0.06);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+section.features .feature-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(24, 40, 72, 0.14);
 }
 
 section.features .feature-item h3 {
-  font-size: 30px;
+  font-size: 1.35rem;
+  margin-bottom: .5rem;
+}
+
+section.features .feature-item p {
+  font-size: 15px;
+  margin-bottom: 0;
 }
 
 section.features .feature-item i {
   display: block;
-  margin-bottom: 0.1em;
+  margin-bottom: .5rem;
   background: linear-gradient(to left, #4b6cb7, #182848);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -293,11 +339,11 @@ section.features .feature-item i {
 }
 
 section.features .servicos .feature-item i {
-  font-size: 3em;
+  font-size: 2.75em;
 }
 
 section.features .formacao .feature-item i {
-  font-size: 5em;
+  font-size: 3em;
 }
 
 section.cta {
@@ -430,11 +476,66 @@ footer ul li a.active {
   font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif';
   letter-spacing: 2px;
   text-transform: uppercase;
+  transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease, color .2s ease;
+}
+
+.btn:hover,
+.btn:focus {
+  transform: translateY(-2px);
 }
 
 .btn-xl {
-  font-size: 11px;
-  padding: 15px 45px;
+  font-size: 12px;
+  padding: 16px 42px;
+}
+
+/* Botão WhatsApp (verde da marca) */
+.btn-whatsapp {
+  color: #fff;
+  background-color: #25D366;
+  border: 1px solid #25D366;
+  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.35);
+}
+
+.btn-whatsapp:hover,
+.btn-whatsapp:focus,
+.btn-whatsapp:active {
+  color: #fff;
+  background-color: #1da851;
+  border-color: #1da851;
+  box-shadow: 0 12px 26px rgba(37, 211, 102, 0.45);
+}
+
+/* Botão flutuante de WhatsApp — sempre acessível, principalmente no mobile */
+.whatsapp-float {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 1031;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  font-size: 32px;
+  color: #fff;
+  text-decoration: none;
+  background-color: #25D366;
+  border-radius: 50%;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
+  transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease;
+}
+
+.whatsapp-float:hover,
+.whatsapp-float:focus {
+  color: #fff;
+  background-color: #1da851;
+  transform: scale(1.08);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+}
+
+.whatsapp-float i {
+  line-height: 1;
 }
 
 #download .section-heading,
@@ -463,6 +564,13 @@ p,
   padding: 0 !important;
 }
 
+/* Sem o padding do container, a .row mantinha as margens negativas do
+   gutter e causava scroll horizontal no mobile — zeramos essas margens. */
+.row.no-padding {
+  margin-right: 0;
+  margin-left: 0;
+}
+
 .padding-top-only {
   padding-top: 2em;
   padding-bottom: 0 !important;
@@ -470,4 +578,83 @@ p,
 
 nav {
   max-width: 100%;
+}
+
+/* ---------- Refinos modernos ---------- */
+
+/* Navbar com leve desfoque/translucidez ao rolar */
+@media (min-width: 992px) {
+  #mainNav.navbar-shrink {
+    background-color: rgba(255, 255, 255, 0.92);
+    -webkit-backdrop-filter: saturate(180%) blur(12px);
+    backdrop-filter: saturate(180%) blur(12px);
+    box-shadow: 0 4px 20px rgba(24, 40, 72, 0.08);
+  }
+}
+
+/* Botões do CTA: centralizados, com folga e quebra de linha amigável */
+section.cta .cta-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 1.5rem;
+}
+
+section.cta #telefone a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Seção de contato: links e ícones legíveis */
+section.contact h2 a,
+section.contact h3 a {
+  color: #000;
+  text-decoration: none;
+}
+
+section.contact h2 a:hover,
+section.contact h3 a:hover {
+  color: #008;
+}
+
+section.contact h3 {
+  font-size: 1.2em;
+}
+
+/* Rodapé enxuto e moderno */
+footer ul.list-inline {
+  margin-bottom: 14px;
+}
+
+footer ul li a {
+  font-size: 22px;
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  transition: color .2s ease;
+}
+
+footer ul li a:hover {
+  color: #fff;
+}
+
+footer .footer-credit {
+  margin-top: 6px;
+  opacity: .7;
+}
+
+footer .footer-credit a {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Respeita quem prefere menos animações */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .btn,
+  .feature-item,
+  .whatsapp-float {
+    transition: none;
+  }
 }
