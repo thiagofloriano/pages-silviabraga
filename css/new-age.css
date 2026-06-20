@@ -1,7 +1,20 @@
+/* Rolagem suave para âncoras (substitui o antigo smooth-scroll em JS).
+   scroll-padding-top evita que o navbar fixo cubra o destino. */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 70px;
+}
+
 html,
 body {
   width: 100%;
   height: 100%;
+}
+
+/* Imagens sempre fluidas — nunca estouram a largura no mobile */
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 body {
@@ -10,12 +23,11 @@ body {
 
 a {
   color: #090284;
-  -webkit-transition: all .35s;
-  -moz-transition: all .35s;
   transition: all .35s;
 }
 
-a:hover, a:focus {
+a:hover,
+a:focus {
   color: #1CD8D2;
 }
 
@@ -42,24 +54,38 @@ h6 {
 }
 
 p {
-  font-size: 18px;
-  line-height: 1.5;
+  font-size: 16px;
+  line-height: 1.6;
   margin-bottom: 20px;
 }
 
+@media (min-width: 768px) {
+  p {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+}
+
 section {
-  padding: 100px 0;
+  padding: 60px 0;
 }
 
 section h2 {
-  font-size: 50px;
+  font-size: 32px;
+}
+
+@media (min-width: 768px) {
+  section {
+    padding: 100px 0;
+  }
+  section h2 {
+    font-size: 50px;
+  }
 }
 
 #mainNav {
   border-color: rgba(34, 34, 34, 0.05);
   background-color: white;
-  -webkit-transition: all .35s;
-  -moz-transition: all .35s;
   transition: all .35s;
   font-family: 'Catamaran', 'Helvetica', 'Arial', 'sans-serif';
   font-weight: 200;
@@ -67,14 +93,15 @@ section h2 {
 }
 
 #mainNav .navbar-brand {
-  color: #FFF;
+  color: #222222;
   font-family: 'Catamaran', 'Helvetica', 'Arial', 'sans-serif';
   font-weight: 200;
   letter-spacing: 1px;
 }
 
-#mainNav .navbar-brand:hover, #mainNav .navbar-brand:focus {
-  color: #fcbd20;
+#mainNav .navbar-brand:hover,
+#mainNav .navbar-brand:focus {
+  color: #090284;
 }
 
 #mainNav .navbar-toggler {
@@ -115,9 +142,10 @@ section h2 {
     background-color: transparent;
   }
   #mainNav .navbar-brand {
-    color: fade(white, 70%);
+    color: rgba(255, 255, 255, 0.7);
   }
-  #mainNav .navbar-brand:hover, #mainNav .navbar-brand:focus {
+  #mainNav .navbar-brand:hover,
+  #mainNav .navbar-brand:focus {
     color: white;
   }
   #mainNav .navbar-nav > li > a,
@@ -135,7 +163,8 @@ section h2 {
   #mainNav.navbar-shrink .navbar-brand {
     color: #222222;
   }
-  #mainNav.navbar-shrink .navbar-brand:hover, #mainNav.navbar-shrink .navbar-brand:focus {
+  #mainNav.navbar-shrink .navbar-brand:hover,
+  #mainNav.navbar-shrink .navbar-brand:focus {
     color: #090284;
   }
   #mainNav.navbar-shrink .navbar-nav > li > a,
@@ -155,7 +184,6 @@ header.masthead {
   padding-bottom: 100px;
   color: white;
   background: url("../img/bg-pattern.png"), #090284;
-  background: url("../img/bg-pattern.png"), -webkit-linear-gradient(to left, #4b6cb7, #182848);
   background: url("../img/bg-pattern.png"), linear-gradient(to left, #4b6cb7, #182848);
 }
 
@@ -173,6 +201,10 @@ header.masthead .device-container {
   max-width: 325px;
   margin-right: auto;
   margin-left: auto;
+}
+
+header.masthead .device-container img {
+  margin: 0 auto;
 }
 
 header.masthead .device-container .screen img {
@@ -200,41 +232,22 @@ header.masthead .device-container .screen img {
 
 section.download {
   position: relative;
-  padding: 8rem 0;
+  padding: 60px 0;
 }
 
 section.download h2 {
-  font-size: 50px;
+  font-size: 32px;
   margin-top: 0;
 }
 
-section.download .badges .badge-link {
-  display: block;
-  margin-bottom: 25px;
-}
-
-section.download .badges .badge-link:last-child {
-  margin-bottom: 0;
-}
-
-section.download .badges .badge-link img {
-  height: 60px;
-}
-
 @media (min-width: 768px) {
-  section.download .badges .badge-link {
-    display: inline-block;
-    margin-bottom: 0;
+  section.download {
+    padding: 8rem 0;
   }
-}
-
-@media (min-width: 768px) {
   section.download h2 {
     font-size: 70px;
   }
 }
-
-
 
 section.features .section-heading h2 {
   margin-top: 0;
@@ -273,10 +286,10 @@ section.features .feature-item h3 {
 section.features .feature-item i {
   display: block;
   margin-bottom: 0.1em;
-  background: -webkit-linear-gradient(to left, #4b6cb7, #182848);
   background: linear-gradient(to left, #4b6cb7, #182848);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 section.features .servicos .feature-item i {
@@ -289,12 +302,9 @@ section.features .formacao .feature-item i {
 
 section.cta {
   position: relative;
-  padding: 8rem 0;
+  padding: 60px 0;
   background-image: url("../img/bg-cta.jpg");
   background-position: center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
   background-size: cover;
 }
 
@@ -311,7 +321,15 @@ section.cta .cta-content h2 {
   color: white;
 }
 
+/* Espaçamento para os botões de WhatsApp quebrarem linha com folga no mobile */
+section.cta .cta-content .btn-xl {
+  margin: 10px 8px;
+}
+
 @media (min-width: 768px) {
+  section.cta {
+    padding: 8rem 0;
+  }
   section.cta .cta-content h2 {
     font-size: 3.5em;
   }
@@ -346,46 +364,8 @@ section.contact h2 {
   font-size: 1.5em;
 }
 
-section.contact h2 i {
-  color: #dd4b39;
-}
-
-section.contact ul.list-social {
-  margin-bottom: 0;
-}
-
-section.contact ul.list-social li a {
-  font-size: 40px;
-  line-height: 80px;
-  display: block;
-  width: 80px;
-  height: 80px;
-  color: white;
-  border-radius: 100%;
-}
-
-section.contact ul.list-social li.social-twitter a {
-  background-color: #1da1f2;
-}
-
-section.contact ul.list-social li.social-twitter a:hover {
-  background-color: #0d95e8;
-}
-
-section.contact ul.list-social li.social-facebook a {
-  background-color: #3b5998;
-}
-
-section.contact ul.list-social li.social-facebook a:hover {
-  background-color: #344e86;
-}
-
-section.contact ul.list-social li.social-google-plus a {
-  background-color: #dd4b39;
-}
-
-section.contact ul.list-social li.social-google-plus a:hover {
-  background-color: #d73925;
+section.contact .menina img {
+  margin: 0 auto;
 }
 
 footer {
@@ -409,13 +389,15 @@ footer ul li a {
   color: rgba(255, 255, 255, 0.3);
 }
 
-footer ul li a:hover, footer ul li a:focus, footer ul li a:active, footer ul li a.active {
+footer ul li a:hover,
+footer ul li a:focus,
+footer ul li a:active,
+footer ul li a.active {
   text-decoration: none;
 }
 
 .bg-primary {
   background: #AAA;
-  background: -webkit-linear-gradient(#1CD8D2, #93EDC7);
   background: linear-gradient(#1CD8D2, #93EDC7);
 }
 
@@ -434,7 +416,10 @@ footer ul li a:hover, footer ul li a:focus, footer ul li a:active, footer ul li 
   border-color: white;
 }
 
-.btn-outline:hover, .btn-outline:focus, .btn-outline:active, .btn-outline.active {
+.btn-outline:hover,
+.btn-outline:focus,
+.btn-outline:active,
+.btn-outline.active {
   color: white;
   border-color: #090284;
   background-color: #090284;
@@ -452,12 +437,14 @@ footer ul li a:hover, footer ul li a:focus, footer ul li a:active, footer ul li 
   padding: 15px 45px;
 }
 
-#download .section-heading, p, #contact h2 {
+#download .section-heading,
+p,
+#contact h2 {
   color: #000;
 }
 
 #telefone {
-  color: #FFF
+  color: #FFF;
 }
 
 #formacao {

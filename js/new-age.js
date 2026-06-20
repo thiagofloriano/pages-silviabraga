@@ -1,42 +1,36 @@
-(function($) {
-  "use strict"; // Start of use strict
+/*!
+ * Silvia Braga — Psicologia Cognitivo-Comportamental
+ * Vanilla JS (no jQuery). Bootstrap 5 loaded via CDN.
+ */
+(function () {
+  "use strict";
 
-  // Smooth scrolling using jQuery easing
-  $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
-    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-      if (target.length) {
-        $('html, body').animate({
-          scrollTop: (target.offset().top - 48)
-        }, 1000, "easeInOutExpo");
-        return false;
-      }
+  document.addEventListener("DOMContentLoaded", function () {
+    const mainNav = document.querySelector("#mainNav");
+
+    // 1. Navbar shrink on scroll: toggle `navbar-shrink` past 100px.
+    if (mainNav) {
+      const toggleShrink = () => {
+        mainNav.classList.toggle("navbar-shrink", window.scrollY > 100);
+      };
+      toggleShrink(); // run once on load (page may not be at top)
+      window.addEventListener("scroll", toggleShrink, { passive: true });
     }
+
+    // 2. Close the mobile collapsed menu when a nav link is clicked.
+    const navbarCollapse = document.querySelector("#navbarResponsive");
+    document
+      .querySelectorAll("#mainNav .nav-link, #mainNav .js-scroll-trigger")
+      .forEach((link) => {
+        link.addEventListener("click", () => {
+          if (
+            navbarCollapse &&
+            navbarCollapse.classList.contains("show") &&
+            window.bootstrap
+          ) {
+            window.bootstrap.Collapse.getOrCreateInstance(navbarCollapse).hide();
+          }
+        });
+      });
   });
-
-  // Closes responsive menu when a scroll trigger link is clicked
-  $('.js-scroll-trigger').click(function() {
-    $('.navbar-collapse').collapse('hide');
-  });
-
-  // Activate scrollspy to add active class to navbar items on scroll
-  $('body').scrollspy({
-    target: '#mainNav',
-    offset: 54
-  });
-
-  // Collapse Navbar
-  var navbarCollapse = function() {
-    if ($("#mainNav").offset().top > 100) {
-      $("#mainNav").addClass("navbar-shrink");
-    } else {
-      $("#mainNav").removeClass("navbar-shrink");
-    }
-  };
-  // Collapse now if page is not at top
-  navbarCollapse();
-  // Collapse the navbar when page is scrolled
-  $(window).scroll(navbarCollapse);
-
-})(jQuery); // End of use strict
+})();
